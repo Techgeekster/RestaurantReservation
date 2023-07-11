@@ -3,7 +3,7 @@
 import React from "react";
 import Menu from "./Menu";
 import Routes from "./Routes";
-import Footer from "./Footer";
+
 
 import "./Layout.css";
 
@@ -28,7 +28,13 @@ function Layout() {
 				</div>
 			</div>
 			<div className="row h-10">
-				<Footer />
+            <div className="container">
+			<div className="col justify-content-between py-3 my-4 border-top">
+				<p className="row mb-0 text-muted">
+					<a href="#top">Back to top</a>
+				</p>
+			</div>
+		</div>
 			</div>
 		</div>
 	);
