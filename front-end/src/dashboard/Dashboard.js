@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { useEffect, useState } from "react";
 import { useHistory, useRouteMatch } from "react-router-dom";
 
@@ -64,23 +62,25 @@ function Dashboard({ date }) {
 	const finishButtonHandler = async (event, table_id) => {
 		event.preventDefault();
 		setTablesError(null);
-
+	  
 		const abortController = new AbortController();
-
+	  
 		const confirmation = window.confirm(
-			"Is this table ready to seat new guests? This cannot be undone.",
+		  "Is this table ready to seat new guests? This cannot be undone."
 		);
 		if (confirmation) {
-			try {
-				await finishTable(table_id, abortController.signal);
-				history.push("/");
-				loadDashboard();
-			} catch (error) {
-				setTablesError(error);
-			}
+		  try {
+			await finishTable(table_id, abortController.signal);
+			history.push("/");
+			loadDashboard();
+		  } catch (error) {
+			setTablesError(error);
+		  }
 		}
-		return () => abortController.abort();
-	};
+	  
+		// Perform any necessary cleanup here
+		abortController.abort();
+	  };
 
 	return (
 		<main className="col-md-10 ms-sm-auto col-lg-10 px-md-4">
