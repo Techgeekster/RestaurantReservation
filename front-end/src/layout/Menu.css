@@ -1,12 +1,16 @@
 .sidebar-brand-text{
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-    flexwrap
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 
-@media all and (min-width: 800px){
+.nav-item {
+    font-size: 12px;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
 
-    .side-bar { 
-      
-      
-    }
+
+  @media all and (min-width: 750px){
+
+    .nav-item {
+        font-size: 20px;
+      }
     }

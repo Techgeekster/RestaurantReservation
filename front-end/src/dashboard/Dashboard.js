@@ -74,88 +74,80 @@ function Dashboard({ date }) {
 			history.push("/");
 			loadDashboard();
 		  } catch (error) {
+			console.error(error); // Log the error to the console
 			setTablesError(error);
 		  }
 		}
 	  
-		// Perform any necessary cleanup here
 		abortController.abort();
 	  };
+	  
 
-	return (
+	  return (
 		<main className="col-md-10 ms-sm-auto col-lg-10 px-md-4">
-			<div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom  d-md-flex">
-				<div>
-					<h1 className="h1">Dashboard</h1>
-				</div>
-
-				{/* buttons to change the date*/}
-
-				<div className="btn-toolbar mb-2 mb-md-0">
-					<div className="btn-group me-2">
-						<button
-							type="button"
-							className="btn btn-outline-secondary"
-							onClick={() => {
-								history.push(`/dashboard?date=${previous(currentDate)}`);
-								setCurrentDate(previous(currentDate));
-							}}>
-							Previous day
-						</button>
-						<button
-							type="button"
-							className="btn btn-outline-secondary"
-							onClick={() => {
-								history.push(`/dashboard?date=${today(currentDate)}`);
-								setCurrentDate(today(currentDate));
-							}}>
-							Today
-						</button>
-						<button
-							type="button"
-							className="btn btn-outline-secondary"
-							onClick={() => {
-								history.push(`/dashboard?date=${next(currentDate)}`);
-								setCurrentDate(next(currentDate));
-							}}>
-							Next day
-						</button>
-					</div>
-				</div>
+		  <div className="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+			<div>
+			  <h1 className="h1">Dashboard</h1>
 			</div>
-
-			{/* reservations display*/}
-
-			<div className="row d-md-flex mb-3">
-				<h4 className="mb-10 text-center text-nowrap">
-					Reservations for {currentDate}
-				</h4>
-				<ErrorAlert error={reservationsError} />
-				{reservations ? (
-					<ReservationsList
-						reservations={reservations}
-						date={currentDate}
-					/>
-				) : (
-					"Loading..."
-				)}
+			<div className="btn-toolbar mb-2 mb-md-0">
+			  <div className="btn-group me-2">
+				<button
+				  type="button"
+				  className="btn btn-outline-secondary"
+				  onClick={() => {
+					history.push(`/dashboard?date=${previous(currentDate)}`);
+					setCurrentDate(previous(currentDate));
+				  }}
+				>
+				  Previous day
+				</button>
+				<button
+				  type="button"
+				  className="btn btn-outline-secondary"
+				  onClick={() => {
+					history.push(`/dashboard?date=${today(currentDate)}`);
+					setCurrentDate(today(currentDate));
+				  }}
+				>
+				  Today
+				</button>
+				<button
+				  type="button"
+				  className="btn btn-outline-secondary"
+				  onClick={() => {
+					history.push(`/dashboard?date=${next(currentDate)}`);
+					setCurrentDate(next(currentDate));
+				  }}
+				>
+				  Next day
+				</button>
+			  </div>
 			</div>
-
-			{/* tables display*/}
-
-			<div className="row d-md-flex mb-3">
-				{tables ? (
-					<TablesList
-						tables={tables}
-						error={tablesError}
-						clickHandler={finishButtonHandler}
-					/>
-				) : (
-					"Loading..."
-				)}
-			</div>
+		  </div>
+		  <div className="row mb-3">
+			<h4 className="col text-center text-nowrap">
+			  Reservations for {currentDate}
+			</h4>
+			<ErrorAlert error={reservationsError} />
+			{reservations ? (
+			  <ReservationsList reservations={reservations} date={currentDate} />
+			) : (
+			  "Loading..."
+			)}
+		  </div>
+		  <div className="row mb-3">
+			{tables ? (
+			  <TablesList
+				tables={tables}
+				error={tablesError}
+				clickHandler={finishButtonHandler}
+			  />
+			) : (
+			  "Loading..."
+			)}
+		  </div>
 		</main>
-	);
-}
+	  );
+	}
 
 export default Dashboard;
