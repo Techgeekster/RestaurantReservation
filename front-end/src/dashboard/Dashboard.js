@@ -71,7 +71,6 @@ function Dashboard({ date }) {
 		if (confirmation) {
 		  try {
 			await finishTable(table_id, abortController.signal);
-			history.push("/");
 			loadDashboard();
 		  } catch (error) {
 			console.error(error); // Log the error to the console
