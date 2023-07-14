@@ -8,6 +8,9 @@ User Stories: As a user, I should be able to:
 * Look up customers and their past reservations at the /search route.
 * Create a new table to seat guests at, at the tables/new route.
 
+Here is a link to the live application!
+https://aurorasrestaurantreservationfrontend.onrender.com/dashboard
+
 Dashboard View:
 
 ![res home](https://github.com/AuroraHusong/newRestaurantRes/assets/90487267/f8d48845-d401-45fe-8133-e6bd2c91ed10)
