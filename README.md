@@ -9,7 +9,8 @@ User Stories: As a user, I should be able to:
 * Create a new table to seat guests at, at the tables/new route.
 
 Dashboard View:
-![res home](https://github.com/AuroraHusong/newRestaurantRes/assets/90487267/6bb445d7-3660-45ff-8ac2-f4c5467ca6d5)
+
+![res home](https://github.com/AuroraHusong/newRestaurantRes/assets/90487267/f8d48845-d401-45fe-8133-e6bd2c91ed10)
 
 Search View:
   
