@@ -36,7 +36,13 @@ const ReservationSearch = () => {
 	};
 
 	const changeHandler = (event) => {
-		setInputData(event.target.value);
+		const inputValue = event.target.value;
+	
+		// Remove any non-digit characters from the input value
+		const numericValue = inputValue.replace(/\D/g, "");
+	
+		// Update the input state with the sanitized numeric value
+		setInputData(numericValue);
 	};
 
 	return (
