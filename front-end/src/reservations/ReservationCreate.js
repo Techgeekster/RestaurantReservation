@@ -53,13 +53,22 @@ const ReservationCreate = () => {
 		return () => abortController.abort();
 	};
 
-	const changeHandler = ({ target: { name, value } }) => {
-		setReservation((previousReservation) => ({
-			...previousReservation,
-			[name]: value,
-		}));
-	};
+// ...
 
+const changeHandler = ({ target: { name, value } }) => {
+	if (name === "mobile_number") {
+	  // Remove any non-digit characters from the input value
+	  value = value.replace(/\D/g, "");
+	}
+  
+	setReservation((previousReservation) => ({
+	  ...previousReservation,
+	  [name]: value,
+	}));
+  };
+  
+  // ...
+  
 	return (
 		<>
 			<h2 className="mb-3 pt-3">Create Reservation</h2>

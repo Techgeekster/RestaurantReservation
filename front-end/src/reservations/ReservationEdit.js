@@ -44,6 +44,10 @@ const ReservationEdit = () => {
 
 
   const changeHandler =({target}) =>{
+    if (target.name === "mobile_number") {
+      // Remove any non-digit characters from the input value
+      target.value = target.value.replace(/\D/g, "");
+    }
     setReservation({
         ...reservation,
         [target.name]: target.value
