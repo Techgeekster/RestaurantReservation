@@ -23,14 +23,18 @@
     "test:8": "npm run test -- us-08",
     "test:drop-database": "node test/drop-database",
     "test:start": "npx cross-env LOG_LEVEL=warn NODE_ENV=test npm run test:start:run",
-    "test:start:run": "run-s test:drop-database start "
+    "test:start:run": "run-s test:drop-database start ",
+    "migrate": "npx knex migrate: latest",
+    "seed": "npx knex seed:run",
+    "migrate-and-seed": "npx knex migrate:latest && npx knex seed:run",
+    "rollback": "npx knex migrate:rollback"
   },
   "keywords": [],
   "author": "",
   "license": "UNLICENSED",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.6.0",
     "express": "^4.17.1",
     "knex": "^0.21.12",
     "nanoid": "^3.1.20",
@@ -39,6 +43,7 @@
     "pino": "^6.11.0",
     "pino-http": "^5.3.0",
     "pino-pretty": "^4.3.0",
+    "telnet": "^0.0.1",
     "text-encoding": "^0.7.0"
   },
   "devDependencies": {

@@ -11,7 +11,7 @@
     "build": "npm -prefix front-end run build",
     "preinstall": "cd ./back-end && npm install",
     "install": "cd ./front-end && npm install",
-    "start": "npx concurrently 'npm run start:backend' 'npm run start:frontend'",
+    "start": "npx concurrently \"npm run start:backend\" \"npm run start:frontend\"",
     "start:backend": "npm --prefix ./back-end start",
     "start:frontend": "npm --prefix ./front-end start",
     "start:dev": "npx concurrently \"npm run start:dev --prefix ./back-end\" \"npm start --prefix ./front-end\" ",
@@ -52,6 +52,7 @@
     "npm-run-all": "^4.1.5"
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
     "knex": "^2.5.0",
     "minimatch": "^9.0.3"
   }
