@@ -17,7 +17,9 @@ const app = express();
 // Configure CORS to allow the specific domain
 const corsOptions = {
   origin: 'https://restaurant-reservation-frontend-dillman.vercel.app',
-  optionsSuccessStatus: 200 // Some legacy browsers (IE11, various SmartTVs) choke on 204
+  optionsSuccessStatus: 200, // Some legacy browsers (IE11, various SmartTVs) choke on 204
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true, // Allow credentials
 };
 
 app.use(cors(corsOptions));
